@@ -6,8 +6,11 @@ var tropo_webapi = require('tropo-webapi');
 // Required to process the HTTP body.
 // req.body has the Object while req.rawBody has the JSON string.
  
-app.configure(function(){
+app.configure(function() {
+    app.use(express.methodOverride());
     app.use(express.bodyParser());
+    app.use(app.router);
+    return app.use(express.static(__dirname + "/public"));
 });
  
 app.post('/', function(req, res){
