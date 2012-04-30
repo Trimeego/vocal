@@ -1,0 +1,99 @@
+<grammar xmlns="http://www.w3.org/2001/06/grammar" root="MAIN">
+ 
+<rule id="MAIN" scope="public">
+ 
+<tag>out.concept="";</tag>
+ 
+    <one-of>
+        <item repeat="1-16">
+            <ruleref uri="#digit">
+            <tag>out.concept = out.concept + rules.digit;</tag>
+        </ruleref></item>
+  
+        <item>
+            help <tag>out.concept="help";</tag>
+        </item>
+ 
+        <item>
+            back <tag>out.concept="back";</tag>
+        </item>
+    </one-of>
+</rule>
+ 
+ 
+<rule id="digit">
+    <one-of>
+        <item>
+            <one-of>
+                <item>one</item>
+                <item>1</item>
+            </one-of>
+                <tag>out="1";</tag>
+        </item>
+        <item>
+            <one-of>
+                <item>two</item>
+                <item>2</item>
+            </one-of>
+                <tag>out="2";</tag>
+        </item>
+        <item>
+            <one-of>
+                <item>three</item>
+                <item>3</item>
+            </one-of>
+                <tag>out="3";</tag>
+        </item>
+        <item>
+            <one-of>
+                <item>four</item>
+                <item>4</item>
+            </one-of>
+                <tag>out="4";</tag>
+        </item>
+        <item>
+            <one-of>
+                <item>five</item>
+                <item>5</item>
+            </one-of>
+                <tag>out="5";</tag>
+        </item>
+        <item>
+            <one-of>
+                <item>six</item>
+                <item>6</item>
+            </one-of>
+                <tag>out="6";</tag>
+        </item>
+        <item>
+            <one-of>
+                <item>seven</item>
+                <item>7</item>
+            </one-of>
+                <tag>out="7";</tag>
+        </item>
+        <item>
+            <one-of>
+                <item>eight</item>
+                <item>8</item>
+            </one-of>
+                <tag>out="8";</tag>
+        </item>
+        <item>
+            <one-of>
+                <item>nine</item>
+                <item>9</item>
+            </one-of>
+                <tag>out="9";</tag>
+        </item>
+        <item>
+            <one-of>
+                <item>zero</item>
+                <item>0</item>
+            </one-of>
+                <tag>out="0";</tag>
+        </item>
+    </one-of>
+</rule>
+ 
+</grammar>
