@@ -34,6 +34,8 @@ app.post('/continue', function(req, res){
      
     var tropo = new TropoWebAPI();
  
+    console.log(req.body)
+
     var answer = req.body['result']['actions']['value'];
      
     tropo.say("You said " + answer);
