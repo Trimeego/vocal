@@ -15,7 +15,7 @@ app.post('/', function(req, res){
     var tropo = new TropoWebAPI();
      
     var say = new Say("What's your destination?");
-    var choices = new Choices("http://myserver.com/destinations.grxml");
+    var choices = new Choices("http://vocal.labs.icggroupinc.com/grammar.grxml");
  
     // (choices, attempts, bargein, minConfidence, name, recognizer, required, say, timeout, voice);
      
@@ -39,5 +39,5 @@ app.post('/continue', function(req, res){
  
 });
  
-app.listen(8000);
-console.log('Server running on port :8000');
+app.listen(8081);
+console.log('Server running on port :8081');
