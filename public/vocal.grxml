@@ -6,6 +6,9 @@
       <tag>out.term="";</tag>
       <tag>out.details="";</tag>
 
+      <item repeat="0-2"> 
+        <ruleref uri="#preface"/> 
+      </item> 
       <item repeat="0-1"> 
         <ruleref uri="#intro"/> 
       </item> 
@@ -21,18 +24,41 @@
         <ruleref uri="#details" />
         <tag>out.details = rules.details;</tag>   
       </item>         
+      <item repeat="0-1"> 
+        <ruleref uri="#closing"/> 
+      </item> 
     </rule>
 
     <rule id="intro">
       <one-of>
         <item> I want </item>
-        <item> What is </item>
-        <item> Give me </item>
-        <item> Find me </item>
-        <item> Tell me </item>
-        <item> Show me </item>
-        <item> Send me </item>
-        <item> Find </item>
+        <item> what is </item>
+        <item> give me </item>
+        <item> find me </item>
+        <item> tell me </item>
+        <item> show me </item>
+        <item> send me </item>
+        <item> find </item>
+        <item> locate </item>
+      </one-of>
+    </rule>
+
+    <rule id="preface">
+      <one-of>
+        <item> Could you </item>
+        <item> Will you </item>
+        <item> Can you </item>
+        <item> Please </item>
+        <item> Siri </item>
+        <item> Computer </item>
+      </one-of>
+    </rule>
+
+    <rule id="closing">
+      <one-of>
+        <item> Please </item>
+        <item> Thank you </item>
+        <item> Thanks </item>
       </one-of>
     </rule>
 
