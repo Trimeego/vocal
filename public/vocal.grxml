@@ -34,27 +34,6 @@
 
     </rule>
 
-    <rule id="intro">
-      <one-of>
-        <item> 
-          <item>
-            I 
-          </item>
-          <item>
-            want 
-          </item>
-        </item>
-        <item> what is </item>
-        <item> give me </item>
-        <item> find me </item>
-        <item> tell me </item>
-        <item> show me </item>
-        <item> send me </item>
-        <item> find </item>
-        <item> locate </item>
-      </one-of>
-    </rule>
-
     <rule id="preface">
       <one-of>
         <item> Could you </item>
@@ -63,6 +42,20 @@
         <item> Please </item>
         <item> Siri </item>
         <item> Computer </item>
+      </one-of>
+    </rule>
+
+    <rule id="intro">
+      <one-of>
+        <item> I want </item>
+        <item> what is </item>
+        <item> give me </item>
+        <item> find me </item>
+        <item> tell me </item>
+        <item> show me </item>
+        <item> send me </item>
+        <item> find </item>
+        <item> locate </item>
       </one-of>
     </rule>
 
@@ -96,7 +89,7 @@
     <rule id="searchField">
       <one-of>
         <item> number <tag> out = 'number'; </tag> </item>
-        <item> over <tag> out = 'amount'; </tag> </item>
+        <item> amount <tag> out = 'amount'; </tag> </item>
         <item> received <tag> out = 'po'; </tag> </item>
         <item> paid <tag> out = 'po'; </tag> </item>
       </one-of>      
@@ -118,8 +111,8 @@
     <rule id="dateValue">
       <item repeat="0-1"> date <tag>out.type = "date";</tag> </item> 
       <item>
-        date
-        <tag> out = "date" </tag>        
+        <ruleref uri="http://vocal.labs.icggroupinc.com/date.grxml" />
+        <tag> out = rules.date; </tag>        
       </item> 
     </rule>
 
