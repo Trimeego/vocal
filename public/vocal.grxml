@@ -36,7 +36,14 @@
 
     <rule id="intro">
       <one-of>
-        <item> I want </item>
+        <item> 
+          <item>
+            I 
+          </item>
+          <item>
+            want 
+          </item>
+        </item>
         <item> what is </item>
         <item> give me </item>
         <item> find me </item>
@@ -89,7 +96,7 @@
     <rule id="searchField">
       <one-of>
         <item> number <tag> out = 'number'; </tag> </item>
-        <item> amount <tag> out = 'amount'; </tag> </item>
+        <item> over <tag> out = 'amount'; </tag> </item>
         <item> received <tag> out = 'po'; </tag> </item>
         <item> paid <tag> out = 'po'; </tag> </item>
       </one-of>      
