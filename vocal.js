@@ -18,7 +18,7 @@ app.post('/', function(req, res){
     var tropo = new TropoWebAPI();
      
     var say = new Say("What's your destination?");
-    var choices = new Choices("http://vocal.labs.icggroupinc.com/grammar.grxml");
+    var choices = new Choices("http://vocal.labs.icggroupinc.com/vocal.grxml");
  
     // (choices, attempts, bargein, minConfidence, name, recognizer, required, say, timeout, voice);
      
