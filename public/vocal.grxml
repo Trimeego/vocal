@@ -98,7 +98,7 @@
     <rule id="searchValue">
       <one-of>
         <item>
-          <ruleref uri="#numberValue" />
+          <ruleref uri="http://vocal.labs.icggroupinc.com/number.grxml" />
           <tag>out = rules.numberValue;</tag>
         </item>
       <item>
@@ -111,8 +111,8 @@
     <rule id="dateValue">
       <item repeat="0-1"> date <tag>out.type = "date";</tag> </item> 
       <item>
-        <ruleref uri="http://vocal.labs.icggroupinc.com/date.grxml" />
-        <tag> out = rules.date; </tag>        
+        date
+        <tag> out = "date"; </tag>        
       </item> 
     </rule>
 
