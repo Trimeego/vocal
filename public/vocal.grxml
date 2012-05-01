@@ -24,10 +24,6 @@
         <ruleref uri="#condition" />
         <tag>out.condition = rules.condition;</tag>   
       </item>
-      <item>
-        <ruleref uri="#searchValue" />
-        <tag>out.value = rules.searchValue;</tag>   
-      </item>
       <item repeat="0-1"> 
         <ruleref uri="#closing"/> 
       </item> 
@@ -89,7 +85,7 @@
     <rule id="condition">
       <one-of>
         <item> 
-          number 
+          <item> number </item>
           <tag> out.field = "invoice_number"; </tag>
           <tag> out.operator = "is"; <tag>
           <item>
@@ -98,7 +94,7 @@
           </item>
         </item>
         <item> 
-          amount 
+          <item> amount </item> 
           <tag> out.field = 'invoice_amount'; </tag> 
           <item>
             <ruleref uri="#numericOperators" />
@@ -165,20 +161,6 @@
         <item> after <tag>out = "isGreaterThan";</tag></item>
         <item> less than <tag>out = "isLessThan";</tag></item>
         <item> before <tag>out = "isLessThan";</tag></item>
-      </one-of>
-    </rule>
-
-
-    <rule id="searchValue">
-      <one-of>
-        <item>
-          <ruleref uri="#numberValue" />
-          <tag>out = rules.numberValue;</tag>
-        </item>
-      <item>
-          <ruleref uri="#dateValue" />
-          <tag>out = rules.dateValue;</tag>
-        </item>
       </one-of>
     </rule>
 
