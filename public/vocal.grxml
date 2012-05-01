@@ -25,8 +25,8 @@
         <tag>out.searchField = rules.searchField;</tag>   
       </item>
       <item>
-        <ruleref uri="#numberValue" />
-        <tag>out.value = rules.numberValue;</tag>   
+        <ruleref uri="#searchValue" />
+        <tag>out.value = rules.searchValue;</tag>   
       </item>
       <item repeat="0-1"> 
         <ruleref uri="#closing"/> 
@@ -93,6 +93,27 @@
         <item> received <tag> out = 'po'; </tag> </item>
         <item> paid <tag> out = 'po'; </tag> </item>
       </one-of>      
+    </rule>
+
+    <rule id="searchValue">
+      <one-of>
+        <item>
+          <ruleref uri="#numberValue" />
+          <tag>out = rules.numberValue;</tag>
+        </item>
+      <item>
+          <ruleref uri="#dateValue" />
+          <tag>out = rules.dateValue;</tag>
+        </item>
+      </one-of>
+    </rule>
+
+    <rule id="dateValue">
+      <item repeat="0-1"> date <tag>out.type = "date";</tag> </item> 
+      <item>
+        <ruleref uri="http://vocal.labs.icggroupinc.com/date.grxml" />
+        <tag> out = rules.date; </tag>        
+      </item> 
     </rule>
 
     <rule id="numberValue">
