@@ -49,28 +49,14 @@
     </rule>
 
    <rule id="details">
-      <one-of>
-        <ruleref uri="#numberQuery"><tag>out = rules.numberQuery;</tag></ruleref>
-        <ruleref uri="#amountQuery"><tag>out = rules.amountQuery;</tag></ruleref>
-       </one-of>
-    </rule>
-
-    <rule id="numberQuery">
       <item repeat="0-1"> number <tag>out.type = "number";</tag> </item> 
+      <item repeat="0-1"> amount <tag>out.type = "amount";</tag> </item> 
       <item repeat="1-16">
         <ruleref uri="#digit">
           <tag>out.details = out.details + rules.digit;</tag>
         </ruleref>
       </item>  
-    </rule>
 
-    <rule id="amountQuery">
-      <item> amount <tag>out.type = "amount";</tag> </item> 
-      <item repeat="1-16">
-        <ruleref uri="#digit">
-          <tag>out.details = out.details + rules.digit;</tag>
-        </ruleref>
-      </item>  
     </rule>
 
     <rule id="digit">
