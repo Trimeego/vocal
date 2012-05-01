@@ -59,9 +59,8 @@
       <item repeat="0-1"> number <tag>out.type = "number";</tag> </item> 
       <item repeat="0-1"> amount <tag>out.type = "amount";</tag> </item> 
       <item repeat="1-16">
-        <ruleref uri="#digit">
-          <tag>out.details = out.details + rules.digit;</tag>
-        </ruleref>
+        <ruleref uri="#digit" />
+        <tag>out.details = out.details + rules.digit;</tag>        
       </item>  
 
     </rule>
