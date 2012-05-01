@@ -10,7 +10,7 @@
         <ruleref uri="#intro"/> 
       </item> 
       <item repeat="0-1"> 
-        <ruleref uri="#query"><tag>out.query = rules.query;</tag></ruleref>
+        <ruleref uri="#query"><tag>out.query = rules;</tag></ruleref>
       </item>       
       <ruleref uri="#term"><tag>out.term = rules.term;</tag></ruleref>
          
