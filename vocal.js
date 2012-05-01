@@ -38,9 +38,8 @@ app.post('/continue', function(req, res){
 
     var answer = req.body['result']['actions']['value'];
 
-    console.log("Answer")
 
-    console.log(answer)
+    console.log(req.body['result']['actions'])
      
     tropo.say("You said " + answer);
          
