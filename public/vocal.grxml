@@ -13,7 +13,7 @@
         <ruleref uri="#query"><tag>out.query = rules.query;</tag></ruleref>
       </item>       
       <ruleref uri="#term"><tag>out.term = rules.term;</tag></ruleref>
-      <ruleref uri="#details"><tag>out.details = rules.details;</tag></ruleref>
+      <ruleref uri="#details"></ruleref>
          
     </rule>
 
