@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!DOCTYPE grammar PUBLIC "-//W3C//DTD GRAMMAR 1.0//EN"
-                  "http://www.w3.org/TR/speech-grammar/grammar.dtd">
-<grammar xmlns="http://www.w3.org/2001/06/grammar" root="MAIN">
+<grammar  version="1.0" xmlns="http://www.w3.org/2001/06/grammar" root="MAIN">
  
     <rule id="MAIN" scope="public">
      
@@ -76,7 +73,7 @@
         <item> the status of  <tag> out = 'status'; </tag> </item>
         <item> about <tag> out = 'status'; </tag> </item>
         <item> all of <tag> out = 'all'; </tag> </item>
-       </one-of>
+      </one-of>
     </rule>
 
     <rule id="docType">
@@ -85,7 +82,7 @@
         <item> invoices <tag> out = 'invoice'; </tag> </item>
         <item> purchase order <tag> out = 'po'; </tag> </item>
         <item> pee oh <tag> out = 'po'; </tag> </item>
-       </one-of>
+      </one-of>
     </rule>
 
     
@@ -95,7 +92,7 @@
         <item> amount <tag> out = 'amount'; </tag> </item>
         <item> received <tag> out = 'po'; </tag> </item>
         <item> paid <tag> out = 'po'; </tag> </item>
-       </one-of>      
+      </one-of>      
     </rule>
 
     <rule id="numberValue">
