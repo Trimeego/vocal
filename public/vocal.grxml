@@ -20,7 +20,7 @@
         <ruleref uri="#docType" />
         <tag>out.docType = rules.docType;</tag>
       </item>
-      <item>
+      <item repeat="0-1">
         <ruleref uri="#searchField" />
         <tag>out.searchField = rules.searchField;</tag>   
       </item>
