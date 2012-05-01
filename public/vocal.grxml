@@ -13,7 +13,6 @@
         <ruleref uri="#query"><tag>out.query = rules.query;</tag></ruleref>
       </item>       
       <ruleref uri="#term"><tag>out.term = rules.term;</tag></ruleref>
-      <ruleref uri="#details"><tag>out.details = rules.details;</tag></ruleref>
          
     </rule>
 
@@ -48,105 +47,6 @@
        </one-of>
     </rule>
 
-    <rule id="details">
-      <one-of>
-        <ruleref uri="#numberQuery"><tag>out = rules.numberQuery;</tag></ruleref>
-        <ruleref uri="#amountQuery"><tag>out = rules.amountQuery;</tag></ruleref>
-       </one-of>
-    </rule>
 
-
-    <rule id="numberQuery">
-      <item repeat="0-1"> number <tag>out.type = "number";</tag> </item> 
-      <item repeat="1-16">
-        <ruleref uri="#digit">
-          <tag>out.details = out.details + rules.digit;</tag>
-        </ruleref>
-      </item>  
-    </rule>
-
-    <rule id="amountQuery">
-      <item> amount <tag>out.type = "amount";</tag> </item> 
-      <item repeat="1-16">
-        <ruleref uri="#digit">
-          <tag>out.details = out.details + rules.digit;</tag>
-        </ruleref>
-      </item>  
-    </rule>
-
-    <rule id="digit">
-      <one-of>
-        <item>
-            <one-of>
-                <item>one</item>
-                <item>1</item>
-            </one-of>
-                <tag>out="1";</tag>
-        </item>
-        <item>
-          <one-of>
-            <item>two</item>
-            <item>2</item>
-          </one-of>
-          <tag>out="2";</tag>
-        </item>
-        <item>
-          <one-of>
-            <item>three</item>
-            <item>3</item>
-          </one-of>
-          <tag>out="3";</tag>
-        </item>
-        <item>
-          <one-of>
-            <item>four</item>
-            <item>4</item>
-          </one-of>
-          <tag>out="4";</tag>
-        </item>
-        <item>
-          <one-of>
-            <item>five</item>
-            <item>5</item>
-          </one-of>
-          <tag>out="5";</tag>
-        </item>
-        <item>
-          <one-of>
-            <item>six</item>
-            <item>6</item>
-          </one-of>
-          <tag>out="6";</tag>
-        </item>
-        <item>
-          <one-of>
-            <item>seven</item>
-            <item>7</item>
-          </one-of>
-          <tag>out="7";</tag>
-        </item>
-        <item>
-          <one-of>
-            <item>eight</item>
-            <item>8</item>
-          </one-of>
-          <tag>out="8";</tag>
-        </item>
-        <item>
-          <one-of>
-            <item>nine</item>
-            <item>9</item>
-          </one-of>
-          <tag>out="9";</tag>
-        </item>
-        <item>
-          <one-of>
-            <item>zero</item>
-            <item>0</item>
-          </one-of>
-          <tag>out="0";</tag>
-        </item>
-      </one-of>
-    </rule>
 
 </grammar>
