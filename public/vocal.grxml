@@ -10,11 +10,17 @@
         <ruleref uri="#intro"/> 
       </item> 
       <item repeat="0-1"> 
-        <ruleref uri="#query"><tag>out.query = rules.query;</tag></ruleref>
-      </item>       
-      <ruleref uri="#term"><tag>out.term = rules.term;</tag></ruleref>
-      <ruleref uri="#details"></ruleref>
-         
+        <ruleref uri="#query"></ruleref>
+        <tag>out.query = rules.query;</tag>
+      </item>  
+      <item>
+        <ruleref uri="#term" />
+        <tag>out.term = rules.term;</tag>
+      </item>
+      <item>
+        <ruleref uri="#details" />
+        <tag>out.details = rules.details;</tag>   
+      </item>         
     </rule>
 
     <rule id="intro">
@@ -25,6 +31,7 @@
         <item> Find me </item>
         <item> Tell me </item>
         <item> Show me </item>
+        <item> Send me </item>
         <item> Find </item>
       </one-of>
     </rule>
