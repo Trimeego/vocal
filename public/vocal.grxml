@@ -28,8 +28,8 @@
         <tag>out.searchField = rules.searchField;</tag>   
       </item>
       <item>
-        <ruleref uri="#searchValues" />
-        <tag>out.searchValues = rules.searchValues;</tag>   
+        <ruleref uri="#numberValue" />
+        <tag>out.numberValue = rules.numberValue;</tag>   
       </item>
       <item repeat="0-1"> 
         <ruleref uri="#closing"/> 
