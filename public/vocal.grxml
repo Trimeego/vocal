@@ -100,32 +100,20 @@
 
     <rule id="searchValues">
       <tag>out.searchValues = [];</tag>
-      <one-of>
-        <item>
-          <ruleref uri="#numberValue" />
-          <tag>out.searchValues.push(rules.numberValue);</tag>
-        </item>
-      </one-of>
+      <item>
+        <ruleref uri="#numberValue" />
+        <tag>out.searchValues.push(rules.numberValue);</tag>
+      </item>
     </rule>
 
 
     <rule id="numberValue">
-      <item repeat="0-1"> number <tag>out.type = "number";</tag> </item> 
       <item repeat="1-16">
         <ruleref uri="#digit" />
         <tag>out = out + rules.digit;</tag>        
       </item> 
     </rule>
 
-<!--    
-    <rule id="dateValue">
-      <item repeat="0-1"> date <tag>out.type = "date";</tag> </item> 
-      <item>
-        <ruleref uri="http://vocal.labs.icggroupinc.com/date.grxml" />
-        <tag> out = rules.date; </tag>        
-      </item> 
-    </rule>
--->
 
     <rule id="digit">
       <one-of>
