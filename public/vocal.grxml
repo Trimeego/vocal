@@ -7,7 +7,7 @@
      
       <tag>out.queryType="";</tag>
       <tag>out.docType="";</tag>
-      <tag>out.searchValues="";</tag>
+      <tag>out.value="";</tag>
 
       <item repeat="0-2"> 
         <ruleref uri="#preface"/> 
@@ -26,6 +26,10 @@
       <item>
         <ruleref uri="#searchField" />
         <tag>out.searchField = rules.searchField;</tag>   
+      </item>
+      <item>
+        <ruleref uri="#numberValue" />
+        <tag>out.value = rules.numberValue;</tag>   
       </item>
       <item repeat="0-1"> 
         <ruleref uri="#closing"/> 
@@ -93,14 +97,6 @@
         <item> paid <tag> out = 'po'; </tag> </item>
        </one-of>      
     </rule>
-
-    <rule id="searchValues">
-      <item>
-        <ruleref uri="#numberValue" />
-        <tag>out = rules.numberValue;</tag>
-      </item>
-    </rule>
-
 
     <rule id="numberValue">
       <item repeat="1-16">
