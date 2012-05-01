@@ -56,6 +56,7 @@
     </rule>
 
    <rule id="details">
+      <tag>out.details = ""</tag>
       <item repeat="0-1"> number <tag>out.type = "number";</tag> </item> 
       <item repeat="0-1"> amount <tag>out.type = "amount";</tag> </item> 
       <item repeat="1-16">
