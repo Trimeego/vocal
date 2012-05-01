@@ -98,7 +98,7 @@
     <rule id="searchValue">
       <one-of>
         <item>
-          <ruleref uri="http://vocal.labs.icggroupinc.com/number.grxml" />
+          <ruleref uri="/number.grxml" />
           <tag>out = rules.numberValue;</tag>
         </item>
       <item>
