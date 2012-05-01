@@ -1,29 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE grammar PUBLIC "-//W3C//DTD GRAMMAR 1.0//EN"
+                  "http://www.w3.org/TR/speech-grammar/grammar.dtd">
 <grammar xmlns="http://www.w3.org/2001/06/grammar" root="MAIN">
  
     <rule id="MAIN" scope="public">
      
-      <tag>out.query="";</tag>
-      <tag>out.term="";</tag>
-      <tag>out.details="";</tag>
+      <tag>out.queryType="";</tag>
+      <tag>out.docType="";</tag>
+      <tag>out.searchValues="";</tag>
 
       <item repeat="0-2"> 
         <ruleref uri="#preface"/> 
-      </item> 
+      </item>
       <item repeat="0-1"> 
         <ruleref uri="#intro"/> 
-      </item> 
+      </item>
       <item repeat="0-1"> 
-        <ruleref uri="#query"></ruleref>
-        <tag>out.query = rules.query;</tag>
-      </item>  
-      <item>
-        <ruleref uri="#term" />
-        <tag>out.term = rules.term;</tag>
+        <ruleref uri="#queryType"></ruleref>
+        <tag>out.queryType = rules.queryType;</tag>
       </item>
       <item>
-        <ruleref uri="#details" />
-        <tag>out.details = rules.details;</tag>   
-      </item>         
+        <ruleref uri="#docType" />
+        <tag>out.docType = rules.docType;</tag>
+      </item>
+      <item>
+        <ruleref uri="#searchField" />
+        <tag>out.searchField = rules.searchField;</tag>   
+      </item>
+      <item>
+        <ruleref uri="#searchValues" />
+        <tag>out.searchValues = rules.searchValues;</tag>   
+      </item>
       <item repeat="0-1"> 
         <ruleref uri="#closing"/> 
       </item> 
@@ -62,7 +69,7 @@
       </one-of>
     </rule>
 
-    <rule id="query">
+    <rule id="queryType">
       <one-of>
         <item> the current status of  <tag> out = 'status'; </tag> </item>
         <item> the status of  <tag> out = 'status'; </tag> </item>
@@ -72,7 +79,7 @@
     </rule>
 
 
-    <rule id="term">
+    <rule id="docType">
       <one-of>
         <item> invoice <tag> out = 'invoice'; </tag> </item>
         <item> invoices <tag> out = 'invoice'; </tag> </item>
@@ -81,15 +88,35 @@
        </one-of>
     </rule>
 
-   <rule id="details">
-      <tag>out.details = ""</tag>
-      <item repeat="0-1"> number <tag>out.type = "number";</tag> </item> 
-      <item repeat="0-1"> amount <tag>out.type = "amount";</tag> </item> 
-      <item repeat="1-16">
-        <ruleref uri="#digit" />
-        <tag>out.details = out.details + rules.digit;</tag>        
-      </item>  
+    
+    <rule id="searchField">
+      <one-of>
+        <item> number <tag> out = 'number'; </tag> </item>
+        <item> amount <tag> out = 'amount'; </tag> </item>
+        <item> received <tag> out = 'po'; </tag> </item>
+        <item> paid <tag> out = 'po'; </tag> </item>
+       </one-of>      
+    </rule>
 
+    <rule id="searchValues">
+      <tag>out.searchValues = [];</tag>
+      <one-of>
+        <item>
+          <item repeat="0-1"> number <tag>out.type = "number";</tag> </item> 
+          <item repeat="1-16">
+            <ruleref uri="#digit" />
+            <tag>searchValues = searchValues + rules.digit;</tag>        
+          </item> 
+          <tag> out.searchValues.push(searchValues); </tag>
+        <item>
+        <item>
+          <item repeat="0-1"> date <tag>out.type = "date";</tag> </item> 
+          <item>
+            <ruleref uri="http://vocal.labs.icggroupinc.com/date.grxml" />
+            <tag> out.searchValues.push(rules.date); </tag>        
+          </item> 
+        <item>
+      </one-of>
     </rule>
 
     <rule id="digit">
