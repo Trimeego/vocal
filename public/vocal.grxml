@@ -23,14 +23,17 @@
         <item> What is </item>
         <item> Give me </item>
         <item> Find me </item>
+        <item> Tell me </item>
+        <item> Show me </item>
         <item> Find </item>
-       </one-of>
+      </one-of>
     </rule>
 
     <rule id="query">
       <one-of>
         <item> the current status of  <tag> out = 'status'; </tag> </item>
         <item> the status of  <tag> out = 'status'; </tag> </item>
+        <item> about <tag> out = 'status'; </tag> </item>
         <item> all of <tag> out = 'all'; </tag> </item>
        </one-of>
     </rule>
@@ -57,16 +60,18 @@
       <item repeat="0-1"> number <tag>out.type = "number";</tag> </item> 
       <item repeat="1-16">
         <ruleref uri="#digit">
-        <tag>out.details = out.details + rules.digit;</tag>
-      </ruleref></item>  
+          <tag>out.details = out.details + rules.digit;</tag>
+        </ruleref>
+      </item>  
     </rule>
 
     <rule id="amountQuery">
       <item> amount <tag>out.type = "amount";</tag> </item> 
       <item repeat="1-16">
         <ruleref uri="#digit">
-        <tag>out.details = out.details + rules.digit;</tag>
-      </ruleref></item>  
+          <tag>out.details = out.details + rules.digit;</tag>
+        </ruleref>
+      </item>  
     </rule>
 
     <rule id="digit">
