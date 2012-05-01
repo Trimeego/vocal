@@ -45,7 +45,7 @@ app.post('/continue', function(req, res){
 
     tropo.say("Let me look that up for you.");
 
-    tropo.on("continue", null, "/continue", true);
+    tropo.on("continue", null, "/answer", true);
 
     res.send(TropoJSON(tropo));
  
