@@ -20,9 +20,9 @@
         <ruleref uri="#docType" />
         <tag>out.docType = rules.docType;</tag>
       </item>
-      <item repeat="0-1">
-        <ruleref uri="#searchField" />
-        <tag>out.searchField = rules.searchField;</tag>   
+      <item>
+        <ruleref uri="#condition" />
+        <tag>out.condition = rules.condition;</tag>   
       </item>
       <item>
         <ruleref uri="#searchValue" />
@@ -86,14 +86,88 @@
     </rule>
 
     
-    <rule id="searchField">
+    <rule id="condition">
       <one-of>
-        <item> number <tag> out = 'number'; </tag> </item>
-        <item> amount <tag> out = 'amount'; </tag> </item>
-        <item> received <tag> out = 'po'; </tag> </item>
-        <item> paid <tag> out = 'po'; </tag> </item>
+        <item> 
+          number 
+          <tag> out.field = "invoice_number"; </tag>
+          <tag> out.operator = "is"; <tag>
+          <item>
+            <ruleref uri="#numberValue" />
+            <tag>out = rules.numberValue;</tag>
+          </item>
+        </item>
+        <item> 
+          amount 
+          <tag> out.field = 'invoice_amount'; </tag> 
+          <item>
+            <ruleref uri="#numericOperators" />
+            <tag>out.condition = rules.numericOperators;</tag>   
+          </item>
+          <item>
+            <ruleref uri="#numberValue" />
+            <tag>out.value = rules.numberValue;</tag>
+          </item>
+        </item>
+        <item>
+          <one-of>
+            <item> received </item>
+            <item> sent </item>
+            <item> delivered </item>
+          </one-of>
+          <item>
+            <ruleref uri="#dateOperators" />
+            <tag>outcondition = rules.dateOperators;</tag>
+          </item>
+          <item>
+            <ruleref uri="#numberValue" />
+            <tag>out.value = rules.numberValue;</tag>
+          </item>
+          <tag> out.field = 'invoice_date'; </tag> 
+        </item>
+        <item>
+          <one-of>
+            <item> paid </item>
+            <item> to be paid </item>
+            <item> that will be paid </item>
+          </one-of>
+          <item>
+            <ruleref uri="#dateOperators" />
+            <tag>outcondition = rules.dateOperators;</tag>
+          </item>
+          <item>
+            <ruleref uri="#dateValue" />
+            <tag>out.value = rules.dateValue;</tag>
+          </item>
+          <tag> out.field = 'check_date'; </tag> 
+        </item>
       </one-of>      
     </rule>
+
+
+
+    <rule id="numericOperators">
+      <item repeat="0-1"> is </item>
+      <one-of>
+        <item> greater than <tag>out = "isGreaterThan";</tag></item>
+        <item> more than <tag>out = "isGreaterThan";</tag></item>
+        <item> over <tag>out = "isGreaterThan";</tag></item>
+        <item> less than <tag>out = "isLessThan";</tag></item>
+        <item> under <tag>out = "isLessThan";</tag></item>
+      </one-of>
+    </rule>
+
+    <rule id="dateOperators">
+      <item repeat="0-1"> is </item>
+      <one-of>
+        <item> greater than <tag>out = "isGreaterThan";</tag></item>
+        <item> more than <tag>out = "isGreaterThan";</tag></item>
+        <item> after <tag>out = "isGreaterThan";</tag></item>
+        <item> less than <tag>out = "isLessThan";</tag></item>
+        <item> before <tag>out = "isLessThan";</tag></item>
+      </one-of>
+    </rule>
+
 
     <rule id="searchValue">
       <one-of>
