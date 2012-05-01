@@ -36,18 +36,29 @@ app.post('/continue', function(req, res){
  
     console.log(req.body)
 
+    var error = req.body['result']['error'];
     var answer = req.body['result']['actions']['utterance'];
 
 
-    console.log(req.body['result']['actions'])
-     
-    tropo.say("You said " + answer);
+    if(error) {
+        tropo.say("Error, " + error);
 
-    tropo.say("Let me look that up for you.");
+        res.send(TropoJSON(tropo));
 
-    tropo.on("continue", null, "/answer", true);
+    }
+    else {
+        console.log(req.body['result']['actions'])
+        tropo.say("You said " + answer);
 
-    res.send(TropoJSON(tropo));
+        tropo.say("Let me look that up for you.");
+
+        tropo.on("continue", null, "/answer", true);
+
+        res.send(TropoJSON(tropo));
+
+    }
+
+         
  
 });
 
