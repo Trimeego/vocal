@@ -37,7 +37,6 @@ app.post('/continue', function(req, res){
     console.log(req.body)
 
     var error = req.body['result']['error'];
-    var answer = req.body['result']['actions']['utterance'];
 
 
     if(error) {
@@ -47,7 +46,10 @@ app.post('/continue', function(req, res){
 
     }
     else {
+        var answer = req.body['result']['actions']['utterance'];
+
         console.log(req.body['result']['actions'])
+
         tropo.say("You said " + answer);
 
         tropo.say("Let me look that up for you.");

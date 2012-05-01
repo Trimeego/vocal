@@ -109,13 +109,13 @@
           </item> 
           <tag> out.searchValues.push(searchValues); </tag>
         <item>
-        <item>
+        <!-- <item>
           <item repeat="0-1"> date <tag>out.type = "date";</tag> </item> 
           <item>
             <ruleref uri="http://vocal.labs.icggroupinc.com/date.grxml" />
             <tag> out.searchValues.push(rules.date); </tag>        
           </item> 
-        <item>
+        <item> -->
       </one-of>
     </rule>
 
