@@ -27,10 +27,6 @@
         <ruleref uri="#searchField" />
         <tag>out.searchField = rules.searchField;</tag>   
       </item>
-      <item>
-        <ruleref uri="#numberValue" />
-        <tag>out.numberValue = rules.numberValue;</tag>   
-      </item>
       <item repeat="0-1"> 
         <ruleref uri="#closing"/> 
       </item> 
@@ -78,7 +74,6 @@
         <item> all of <tag> out = 'all'; </tag> </item>
        </one-of>
     </rule>
-
 
     <rule id="docType">
       <one-of>
