@@ -17,7 +17,7 @@ app.post('/', function(req, res){
      
     var tropo = new TropoWebAPI();
      
-    var say = new Say("Welcome to the Supplier Portal.  How can I help you?");
+    var say = new Say("Welcome to the Supplier Portal.  How can I help you.");
     var choices = new Choices("http://vocal.labs.icggroupinc.com/vocal.grxml");
  
     // (choices, attempts, bargein, minConfidence, name, recognizer, required, say, timeout, voice);
@@ -42,12 +42,29 @@ app.post('/continue', function(req, res){
     console.log(req.body['result']['actions'])
      
     tropo.say("You said " + answer);
-    
-    tropo.say("Let me look that up for you " + answer);
-         
+
+    tropo.say("Let me look that up for you.");
+
+    tropo.on("continue", null, "/continue", true);
+
     res.send(TropoJSON(tropo));
  
 });
+
+app.post('/answer', function(req, res){
+     
+    var tropo = new TropoWebAPI();
+ 
+    setTimeout(function(){
+
+        tropo.say("I found two invoices that matched your inquiry.  Would you like me e-mail the results to you?");
+
+        res.send(TropoJSON(tropo));
+
+    }, 2000);
+ 
+});
+
  
 app.listen(8081);
 console.log('Server running on port :8081');
