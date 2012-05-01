@@ -90,7 +90,7 @@
           <tag> out.operator = "is"; <tag>
           <item>
             <ruleref uri="#numberValue" />
-            <tag>out = rules.numberValue;</tag>
+            <tag>out.value = rules.numberValue;</tag>
           </item>
         </item>
         <item> 
@@ -102,7 +102,7 @@
           </item>
           <item>
             <ruleref uri="#numberValue" />
-            <tag>out.value = rules.numberValue;</tag>
+            <tag> out.value = rules.numberValue; </tag>
           </item>
         </item>
         <item>
@@ -113,7 +113,7 @@
           </one-of>
           <item>
             <ruleref uri="#dateOperators" />
-            <tag>outcondition = rules.dateOperators;</tag>
+            <tag>out.condition = rules.dateOperators;</tag>
           </item>
           <item>
             <ruleref uri="#numberValue" />
@@ -129,7 +129,7 @@
           </one-of>
           <item>
             <ruleref uri="#dateOperators" />
-            <tag>outcondition = rules.dateOperators;</tag>
+            <tag>out.condition = rules.dateOperators;</tag>
           </item>
           <item>
             <ruleref uri="#dateValue" />
@@ -139,8 +139,6 @@
         </item>
       </one-of>      
     </rule>
-
-
 
     <rule id="numericOperators">
       <item repeat="0-1"> is </item>
