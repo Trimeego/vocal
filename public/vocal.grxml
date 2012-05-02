@@ -345,4 +345,31 @@
     </one-of>
     <item> hundred </item>
   </rule>
+  <rule id="thousandsPlace">
+    <one-of>
+      <item>
+        <ruleref uri="#numbers1to9"/>
+        <tag>out = rules.numbers1to9 * 1000;</tag>
+      </item>
+      <item>
+        <ruleref uri="#teens"/>
+        <tag>out = rules.numbers1to9 * 1000;</tag>
+      </item>
+      <item>
+        <item>
+          <ruleref uri="#tens"/>
+          <tag>out = (rules.tens * 1000);</tag>
+        </item>
+        <item repeat="0-1">
+          <ruleref uri="#numbers1to9"/>
+          <tag>out = (rules.numbers1to9 * 1000);</tag>
+        </item>
+      </item>
+      <item>
+        <ruleref uri="#hundreds"/>
+        <tag>out = rules.hundreds * 1000;</tag>
+      </item>
+    </one-of>
+    <item> thousand </item>
+  </rule>
 </grammar>
