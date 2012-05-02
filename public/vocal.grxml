@@ -353,7 +353,7 @@
       </item>
       <item>
         <ruleref uri="#teens"/>
-        <tag>out = rules.numbers1to9 * 1000;</tag>
+        <tag>out = rules.teens * 1000;</tag>
       </item>
       <item>
         <item>
