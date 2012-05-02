@@ -89,7 +89,7 @@
         return res.send(TropoJSON(tropo));
       } else {
         tropo.say("I'm sorry I didn't get that");
-        tropo.on("continue", null, "/", true);
+        tropo.on("continue", null, "/query", true);
         return res.send(TropoJSON(tropo));
       }
     }

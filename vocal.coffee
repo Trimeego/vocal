@@ -71,7 +71,7 @@ app.post "/continue", (req, res) ->
 
     else
       tropo.say "I'm sorry I didn't get that"
-      tropo.on "continue", null, "/", true
+      tropo.on "continue", null, "/query", true
       res.send TropoJSON(tropo)
 
 app.post "/answer", (req, res) ->
