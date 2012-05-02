@@ -100,8 +100,8 @@
           <tag>out.condition = rules.dateOperators;</tag>
         </item>
         <item>
-          <ruleref uri="#numberValue"/>
-          <tag>out.value = rules.numberValue;</tag>
+          <ruleref uri="#dateValue"/>
+          <tag>out.value = rules.dateValue;</tag>
         </item>
         <tag> out.field = 'invoice_date'; </tag>
       </item>
@@ -116,8 +116,8 @@
           <tag>out.condition = rules.dateOperators;</tag>
         </item>
         <item>
-          <ruleref uri="#numberValue"/>
-          <tag>out.value = rules.numberValue;</tag>
+          <ruleref uri="#dateValue"/>
+          <tag>out.value = rules.dateValue;</tag>
         </item>
         <tag> out.field = 'check_date'; </tag>
       </item>
