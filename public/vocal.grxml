@@ -5,6 +5,7 @@
       <tag>out.queryType="";</tag>
       <tag>out.docType="";</tag>
       <tag>out.value="";</tag>
+      <tag>out.condition = {field:"invoice_number", operator:"is"}; <tag>
 
       <item repeat="0-2"> 
         <ruleref uri="#preface"/> 
@@ -85,10 +86,7 @@
 
     
 
-    <rule id="condition">
-      <tag> out.field = "invoice_number"; </tag>
-      <tag> out.operator = "is"; <tag>
-    
+    <rule id="condition">    
       <one-of>
         <item> 
           <item> number </item>
