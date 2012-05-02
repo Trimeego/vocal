@@ -88,6 +88,8 @@
       <item> open <tag> out = 'open'; </tag> </item>
       <item> unpaid <tag> out = 'open'; </tag> </item>
       <item> rejected <tag> out = 'rejected'; </tag> </item>
+      <item> paid <tag> out = 'paid'; </tag> </item>
+      <item> closed <tag> out = 'paid'; </tag> </item>
     </one-of>
   </rule>
   <rule id="condition">
