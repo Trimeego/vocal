@@ -128,8 +128,8 @@
             <tag>out.condition = rules.dateOperators;</tag>
           </item>
           <item>
-            <ruleref uri="#dateValue" />
-            <tag>out.value = rules.dateValue;</tag>
+            <ruleref uri="#numberValue" />
+            <tag>out.value = rules.numberValue;</tag>
           </item>
           <tag> out.field = 'check_date'; </tag> 
         </item>        
