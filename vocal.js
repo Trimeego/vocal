@@ -28,7 +28,7 @@
   });
 
   app.post("/continue", function(req, res) {
-    var answer, error, tropo;
+    var error, phrases, query, tropo;
     tropo = new TropoWebAPI();
     console.log(req.body);
     error = req.body["result"]["error"];
@@ -36,12 +36,55 @@
       tropo.say("Error, " + error);
       return res.send(TropoJSON(tropo));
     } else {
-      answer = req.body["result"]["actions"]["utterance"];
+      query = req.body["result"]["actions"]["query"];
       console.log(req.body["result"]["actions"]);
-      tropo.say("You said " + answer);
-      tropo.say("Let me look that up for you.");
-      tropo.on("continue", null, "/answer", true);
-      return res.send(TropoJSON(tropo));
+      if (query.docType == null) {
+        query.docType = 'invoice';
+      }
+      if (query.docStatus == null) {
+        query.docStatus = 'paid';
+      }
+      if (query.condition && query.condition.field && query.condition.operator && query.condition.value) {
+        phrases = ["Are you looking for "];
+        switch (query.docType) {
+          case "invoice":
+            if (query.condition.operator === "is") {
+              phrases.push("invoice number " + query.condition.value);
+              phrases.push(query.condition.value);
+            } else {
+              if (query.condition.field === "invoice_date") {
+                if (query.condition.operator === "isGreaterThan") {
+                  phrases.push("invoices dated after  " + query.condition.value);
+                } else {
+                  phrases.push("invoices dated before " + query.condition.value);
+                }
+              } else if (query.condition.field === "check_date") {
+                if (query.condition.operator === "isGreaterThan") {
+                  phrases.push("invoices paid after " + query.condition.value);
+                } else {
+                  phrases.push("invoices paid before " + query.condition.value);
+                }
+              } else {
+                if (query.condition.operator === "isGreaterThan") {
+                  phrases.push("invoices over  " + query.condition.value);
+                } else {
+                  phrases.push("invoices over  " + query.condition.value);
+                }
+              }
+              phrases.push(query.condition.value);
+            }
+            break;
+          case "po":
+            phrases.push("invoices for purchase order " + query.condition.value);
+        }
+        tropo.say(phrases.join(' '));
+        tropo.on("continue", null, "/answer", true);
+        return res.send(TropoJSON(tropo));
+      } else {
+        tropo.say("I'm sorry I didn't get that");
+        tropo.on("continue", null, "/", true);
+        return res.send(TropoJSON(tropo));
+      }
     }
   });
 
