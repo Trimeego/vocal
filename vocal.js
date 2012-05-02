@@ -77,6 +77,7 @@
           case "po":
             phrases.push("" + query.docStatus + " invoices for purchase order " + query.condition.value);
         }
+        console.log(phrases);
         tropo.say(phrases.join(' '));
         tropo.on("continue", null, "/answer", true);
         return res.send(TropoJSON(tropo));
