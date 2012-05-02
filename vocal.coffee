@@ -38,7 +38,7 @@ app.post "/continue", (req, res) ->
     query.docStatus ?= 'unpaid'
 
     if query.condition && query.condition.field && query.condition.operator && query.condition.value
-      phrases = ["Are you looking for "]
+      phrases = ["I am searching for "]
 
       switch query.docType
         when "invoice"
