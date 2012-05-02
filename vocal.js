@@ -18,9 +18,17 @@
   });
 
   app.post("/", function(req, res) {
+    var tropo;
+    tropo = new TropoWebAPI();
+    tropo.say("Welcome to the Supplier Portal.");
+    tropo.on("continue", null, "/query", true);
+    return res.send(TropoJSON(tropo));
+  });
+
+  app.post("/query", function(req, res) {
     var choices, say, tropo;
     tropo = new TropoWebAPI();
-    say = new Say("Welcome to the Supplier Portal.  How can I help you.");
+    say = new Say("How can I help you?");
     choices = new Choices("http://vocal.labs.icggroupinc.com/vocal.grxml");
     tropo.ask(choices, null, null, null, "query", null, null, say, 60, null);
     tropo.on("continue", null, "/continue", true);
@@ -42,7 +50,7 @@
         query.docType = 'invoice';
       }
       if (query.docStatus == null) {
-        query.docStatus = 'paid';
+        query.docStatus = 'unpaid';
       }
       if (query.condition && query.condition.field && query.condition.operator && query.condition.value) {
         phrases = ["Are you looking for "];
@@ -71,13 +79,11 @@
                   phrases.push("" + query.docStatus + " invoices over  " + query.condition.value);
                 }
               }
-              phrases.push(query.condition.value);
             }
             break;
           case "po":
             phrases.push("" + query.docStatus + " invoices for purchase order " + query.condition.value);
         }
-        console.log(phrases);
         tropo.say(phrases.join(' '));
         tropo.on("continue", null, "/answer", true);
         return res.send(TropoJSON(tropo));

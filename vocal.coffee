@@ -10,7 +10,14 @@ app.configure ->
 
 app.post "/", (req, res) ->
   tropo = new TropoWebAPI()
-  say = new Say("Welcome to the Supplier Portal.  How can I help you.")
+  tropo.say "Welcome to the Supplier Portal."
+  tropo.on "continue", null, "/query", true
+  res.send TropoJSON(tropo)
+
+
+app.post "/query", (req, res) ->
+  tropo = new TropoWebAPI()
+  say = new Say("How can I help you?")
   choices = new Choices("http://vocal.labs.icggroupinc.com/vocal.grxml")
   tropo.ask choices, null, null, null, "query", null, null, say, 60, null
   tropo.on "continue", null, "/continue", true
@@ -28,7 +35,7 @@ app.post "/continue", (req, res) ->
     console.log req.body["result"]["actions"]
 
     query.docType ?= 'invoice'
-    query.docStatus ?= 'paid'
+    query.docStatus ?= 'unpaid'
 
     if query.condition && query.condition.field && query.condition.operator && query.condition.value
       phrases = ["Are you looking for "]
@@ -54,13 +61,10 @@ app.post "/continue", (req, res) ->
                 phrases.push "#{query.docStatus} invoices over  #{query.condition.value}"
               else
                 phrases.push "#{query.docStatus} invoices over  #{query.condition.value}"
-            phrases.push query.condition.value
 
         when "po"
           phrases.push "#{query.docStatus} invoices for purchase order #{query.condition.value}"
       
-      console.log phrases
-
       tropo.say phrases.join(' ')
       tropo.on "continue", null, "/answer", true
       res.send TropoJSON(tropo)
