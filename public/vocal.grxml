@@ -255,6 +255,7 @@
       <item repeat="0-1">
         <ruleref uri="#thousandsPlace"/><tag>out = (out ? out : 0) + rules.thousandsPlace;</tag>
       </item>
+<!--      
       <item repeat="0-1">
         <ruleref uri="#hundredsPlace"/><tag>out = (out ? out : 0) + rules.hundredsPlace;</tag>
       </item>
@@ -277,6 +278,7 @@
           cents
         </item>
       </item>
+-->
     </rule>
 
 
