@@ -278,5 +278,27 @@
       <item> ninety <tag>  out = 90;  </tag></item>
     </one-of>
   </rule>
+  <rule id="centsPlace">
+    <one-of>
+      <item>
+        <ruleref uri="#numbers1to9"/>
+        <tag>out = rules.numbers1to9 * .01;</tag>
+      </item>
+      <item>
+        <ruleref uri="#teens"/>
+        <tag>out = rules.numbers1to9 * .01;</tag>
+      </item>
+      <item>
+        <item>
+          <ruleref uri="#tens"/>
+          <tag>out = (rules.tens * .01);</tag>
+        </item>
+        <item repeat="0-1">
+          <ruleref uri="#numbers1to9"/>
+          <tag>out = (rules.numbers1to9 * .01);</tag>
+        </item>
+      </item>
+    </one-of>
+  </rule>
 
 </grammar>
