@@ -300,5 +300,27 @@
       </item>
     </one-of>
   </rule>
+  <rule id="onesPlace">
+    <one-of>
+      <item>
+        <ruleref uri="#numbers1to9"/>
+        <tag>out = rules.numbers1to9;</tag>
+      </item>
+      <item>
+        <ruleref uri="#teens"/>
+        <tag>out = rules.numbers1to9;</tag>
+      </item>
+      <item>
+        <item>
+          <ruleref uri="#tens"/>
+          <tag>out = (out ? out : 0)+ rules.tens;</tag>
+        </item>
+        <item repeat="0-1">
+          <ruleref uri="#numbers1to9"/>
+          <tag>out = (out ? out : 0)+ rules.numbers1to9;</tag>
+        </item>
+      </item>
+    </one-of>
+  </rule>
 
 </grammar>
