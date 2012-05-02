@@ -266,7 +266,7 @@
       <item repeat="0-1">
         <ruleref uri="#onesPlace"/>
         <tag>out = (out ? Number(out) : 0 ) + rules.onesPlace;</tag>
-        <item repeat="0-1"> dollars </item>
+        <item> dollars </item>
       </item>
       <item repeat="0-1">
         and
@@ -274,7 +274,7 @@
       <item repeat="0-1">
         <ruleref uri="#centsPlace"/>
         <tag>out = (out ? Number(out) : 0 ) + (rules.centsPlace * .01);</tag>
-        <item repeat="0-1"> cents </item>
+        <item> cents </item>
       </item>
   </rule>
   <rule id="numbers1to9">
