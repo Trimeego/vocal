@@ -11,6 +11,10 @@
       <ruleref uri="#queryType"/>
       <tag>out.queryType = rules.queryType;</tag>
     </item>
+    <item repeat="0-1">
+      <ruleref uri="#docStatus"/>
+      <tag>out.docStatus = rules.docStatus;</tag>
+    </item>
     <item>
       <ruleref uri="#docType"/>
       <tag>out.docType = rules.docType;</tag>
@@ -18,6 +22,16 @@
     <item>
       <ruleref uri="#condition"/>
       <tag>out.condition = rules.condition;</tag>
+    </item>
+    <item repeat="0-1">
+      <one-of>
+        <item> that are </item>
+        <item> that is </item>
+        <item> with a status </item>
+        <item> with a status of</item>
+      </one-of>
+      <ruleref uri="#docStatus"/>
+      <tag>out.docStatus = rules.docStatus;</tag>
     </item>
     <item repeat="0-1">
       <ruleref uri="#closing"/>
@@ -67,6 +81,13 @@
       <item> invoices <tag> out = 'invoice'; </tag> </item>
       <item> purchase order <tag> out = 'po'; </tag> </item>
       <item> pee oh <tag> out = 'po'; </tag> </item>
+    </one-of>
+  </rule>
+  <rule id="docStatus">
+    <one-of>
+      <item> open <tag> out = 'open'; </tag> </item>
+      <item> unpaid <tag> out = 'open'; </tag> </item>
+      <item> rejected <tag> out = 'rejected'; </tag> </item>
     </one-of>
   </rule>
   <rule id="condition">
