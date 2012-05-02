@@ -229,7 +229,27 @@
 
   -->
   <rule id="amountValue">
-    <item>hello</item>
+      <item repeat="0-1">
+        <ruleref uri="#thousandsPlace"/>
+        <tag>out = out + rules.thousandsPlace;</tag>
+      </item>
+      <item repeat="0-1">
+        <ruleref uri="#hundredsPlace"/>
+        <tag>out = out + rules.hundredsPlace;</tag>
+      </item>
+      <item repeat="0-1">
+        <ruleref uri="#onesPlace"/>
+        <tag>out = out + rules.onesPlace;</tag>
+        <item repeat="0-1"> dollars </item>
+      </item>
+      <item repeat="0-1">
+        and
+      </item>
+      <item repeat="0-1">
+        <ruleref uri="#cents"/>
+        <tag>out = out + rules.cents;</tag>
+        <item repeat="0-1"> cents </item>
+      </item>
   </rule>
   <rule id="numbers1to9">
     <one-of>
