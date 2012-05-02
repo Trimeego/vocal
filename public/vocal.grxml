@@ -252,12 +252,14 @@
 
 
     <rule id="amountValue">
+      <item>hello</item>
+<!--      
+      
       <item repeat="0-1">
         <ruleref uri="#onesPlace"/><tag>out = (out ? out : 0) + rules.onesPlace;</tag>
       </item>
 
 
-<!--      
 
       <item repeat="0-1">
         <ruleref uri="#thousandsPlace"/><tag>out = (out ? out : 0) + rules.thousandsPlace;</tag>
