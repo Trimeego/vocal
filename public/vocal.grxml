@@ -93,50 +93,6 @@
             <tag>out.value = rules.numberValue;</tag>
           </item>
         </item>
-        <item> 
-          <item> amount </item> 
-          <tag> out.field = 'invoice_amount'; </tag> 
-          <item>
-            <ruleref uri="#numericOperators" />
-            <tag>out.condition = rules.numericOperators;</tag>   
-          </item>
-          <item>
-            <ruleref uri="#numberValue" />
-            <tag> out.value = rules.numberValue; </tag>
-          </item>
-        </item>
-        <item>
-          <one-of>
-            <item> received </item>
-            <item> sent </item>
-            <item> delivered </item>
-          </one-of>
-          <item>
-            <ruleref uri="#dateOperators" />
-            <tag>out.condition = rules.dateOperators;</tag>
-          </item>
-          <item>
-            <ruleref uri="#numberValue" />
-            <tag>out.value = rules.numberValue;</tag>
-          </item>
-          <tag> out.field = 'invoice_date'; </tag> 
-        </item>
-        <item>
-          <one-of>
-            <item> paid </item>
-            <item> to be paid </item>
-            <item> that will be paid </item>
-          </one-of>
-          <item>
-            <ruleref uri="#dateOperators" />
-            <tag>out.condition = rules.dateOperators;</tag>
-          </item>
-          <item>
-            <ruleref uri="#dateValue" />
-            <tag>out.value = rules.dateValue;</tag>
-          </item>
-          <tag> out.field = 'check_date'; </tag> 
-        </item>
       </one-of>      
     </rule>
 
