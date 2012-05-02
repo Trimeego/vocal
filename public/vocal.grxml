@@ -257,15 +257,15 @@
     <tag> out = 0; </tag>
       <item repeat="0-1">
         <ruleref uri="#thousandsPlace"/>
-        <tag>out = out + (rules.thousandsPlace * 1000);</tag>
+        <tag>out = (out ? out : 0 ) + (rules.thousandsPlace * 1000);</tag>
       </item>
       <item repeat="0-1">
         <ruleref uri="#hundredsPlace"/>
-        <tag>out = out + (rules.hundredsPlace * 1000);</tag>
+        <tag>out = (out ? out : 0 ) + (rules.hundredsPlace * 1000);</tag>
       </item>
       <item repeat="0-1">
         <ruleref uri="#onesPlace"/>
-        <tag>out = out + rules.onesPlace;</tag>
+        <tag>out = (out ? out : 0 ) + rules.onesPlace;</tag>
         <item repeat="0-1"> dollars </item>
       </item>
       <item repeat="0-1">
@@ -273,7 +273,7 @@
       </item>
       <item repeat="0-1">
         <ruleref uri="#centsPlace"/>
-        <tag>out = out + (rules.centsPlace * .01);</tag>
+        <tag>out = (out ? out : 0 ) + (rules.centsPlace * .01);</tag>
         <item repeat="0-1"> cents </item>
       </item>
   </rule>

@@ -36,28 +36,28 @@ app.post "/continue", (req, res) ->
       switch query.docType
         when "invoice"
           if query.condition.operator is "is"
-            phrases.push "invoice number #{query.condition.value}"
+            phrases.push "a #{query.docStatus} invoice number #{query.condition.value}"
             phrases.push query.condition.value
           else
             if query.condition.field is "invoice_date"
               if query.condition.operator is "isGreaterThan"
-                phrases.push "invoices dated after  #{query.condition.value}"
+                phrases.push "#{query.docStatus} invoices dated after  #{query.condition.value}"
               else
-                phrases.push "invoices dated before #{query.condition.value}"
+                phrases.push "#{query.docStatus} invoices dated before #{query.condition.value}"
             else if query.condition.field is "check_date"
               if query.condition.operator is "isGreaterThan"
-                phrases.push "invoices paid after #{query.condition.value}"
+                phrases.push "#{query.docStatus} invoices paid after #{query.condition.value}"
               else
-                phrases.push "invoices paid before #{query.condition.value}"
+                phrases.push "#{query.docStatus} invoices paid before #{query.condition.value}"
             else
               if query.condition.operator is "isGreaterThan"
-                phrases.push "invoices over  #{query.condition.value}"
+                phrases.push "#{query.docStatus} invoices over  #{query.condition.value}"
               else
-                phrases.push "invoices over  #{query.condition.value}"
+                phrases.push "#{query.docStatus} invoices over  #{query.condition.value}"
             phrases.push query.condition.value
 
         when "po"
-          phrases.push "invoices for purchase order #{query.condition.value}"
+          phrases.push "#{query.docStatus} invoices for purchase order #{query.condition.value}"
       
       
 

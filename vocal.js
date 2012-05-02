@@ -49,33 +49,33 @@
         switch (query.docType) {
           case "invoice":
             if (query.condition.operator === "is") {
-              phrases.push("invoice number " + query.condition.value);
+              phrases.push("a " + query.docStatus + " invoice number " + query.condition.value);
               phrases.push(query.condition.value);
             } else {
               if (query.condition.field === "invoice_date") {
                 if (query.condition.operator === "isGreaterThan") {
-                  phrases.push("invoices dated after  " + query.condition.value);
+                  phrases.push("" + query.docStatus + " invoices dated after  " + query.condition.value);
                 } else {
-                  phrases.push("invoices dated before " + query.condition.value);
+                  phrases.push("" + query.docStatus + " invoices dated before " + query.condition.value);
                 }
               } else if (query.condition.field === "check_date") {
                 if (query.condition.operator === "isGreaterThan") {
-                  phrases.push("invoices paid after " + query.condition.value);
+                  phrases.push("" + query.docStatus + " invoices paid after " + query.condition.value);
                 } else {
-                  phrases.push("invoices paid before " + query.condition.value);
+                  phrases.push("" + query.docStatus + " invoices paid before " + query.condition.value);
                 }
               } else {
                 if (query.condition.operator === "isGreaterThan") {
-                  phrases.push("invoices over  " + query.condition.value);
+                  phrases.push("" + query.docStatus + " invoices over  " + query.condition.value);
                 } else {
-                  phrases.push("invoices over  " + query.condition.value);
+                  phrases.push("" + query.docStatus + " invoices over  " + query.condition.value);
                 }
               }
               phrases.push(query.condition.value);
             }
             break;
           case "po":
-            phrases.push("invoices for purchase order " + query.condition.value);
+            phrases.push("" + query.docStatus + " invoices for purchase order " + query.condition.value);
         }
         tropo.say(phrases.join(' '));
         tropo.on("continue", null, "/answer", true);
