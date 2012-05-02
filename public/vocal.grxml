@@ -121,13 +121,6 @@
           </item>
           <tag> out.field = 'invoice_date'; </tag> 
         </item>
-      </one-of>
-
-<!--      
-
-      <tag> out.field = "invoice_number"; </tag>
-      <tag> out.operator = "is"; <tag>
-      <one-of>
         <item>
           <one-of>
             <item> paid </item>
@@ -143,8 +136,13 @@
             <tag>out.value = rules.dateValue;</tag>
           </item>
           <tag> out.field = 'check_date'; </tag> 
-        </item>
-      </one-of>    
+        </item>        
+      </one-of>
+
+<!--      
+
+      <tag> out.field = "invoice_number"; </tag>
+      <tag> out.operator = "is"; <tag>
 -->  
     </rule>
 
