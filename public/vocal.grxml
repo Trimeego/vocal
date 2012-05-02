@@ -366,8 +366,8 @@
         </item>
       </item>
       <item>
-        <ruleref uri="#hundreds"/>
-        <tag>out = rules.hundreds * 1000;</tag>
+        <ruleref uri="#hundredsPlace"/>
+        <tag>out = rules.hundredsPlace * 1000;</tag>
       </item>
     </one-of>
     <item> thousand </item>
