@@ -87,7 +87,13 @@
 
     <rule id="condition">
       <one-of>
-        <item> invoice <tag> out = 'invoice'; </tag> </item>
+        <item> 
+          <item> number </item>
+          <item>
+            <ruleref uri="#numberValue" />
+            <tag>out.value = rules.numberValue;</tag>
+          </item>
+        </item>
         <item> invoices <tag> out = 'invoice'; </tag> </item>
         <item> purchase order <tag> out = 'po'; </tag> </item>
         <item> pee oh <tag> out = 'po'; </tag> </item>
@@ -98,13 +104,6 @@
       <tag> out.field = "invoice_number"; </tag>
       <tag> out.operator = "is"; <tag>
       <one-of>
-        <item> 
-          <item> number </item>
-          <item>
-            <ruleref uri="#numberValue" />
-            <tag>out.value = rules.numberValue;</tag>
-          </item>
-        </item>
         <item> 
           <item> amount <tag> out.field = 'invoice_amount'; </tag> </item> 
           <item>
