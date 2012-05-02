@@ -105,7 +105,7 @@
         <item repeat="0-1"> amount <tag> out.field = 'invoice_amount'; </tag> </item>
         <item>
           <ruleref uri="#numericOperators"/>
-          <tag>out.condition = rules.numericOperators;</tag>
+          <tag>out.operator = rules.numericOperators;</tag>
         </item>
         <item>
           <ruleref uri="#amountValue"/>
@@ -120,7 +120,7 @@
         </one-of>
         <item>
           <ruleref uri="#dateOperators"/>
-          <tag>out.condition = rules.dateOperators;</tag>
+          <tag>out.operator = rules.dateOperators;</tag>
         </item>
         <item>
           <ruleref uri="#dateValue"/>
@@ -136,7 +136,7 @@
         </one-of>
         <item>
           <ruleref uri="#dateOperators"/>
-          <tag>out.condition = rules.dateOperators;</tag>
+          <tag>out.operator = rules.dateOperators;</tag>
         </item>
         <item>
           <ruleref uri="#dateValue"/>
