@@ -97,8 +97,8 @@
             <tag>out.condition = rules.numericOperators;</tag>   
           </item>
           <item>
-            <ruleref uri="#amountValue" />
-            <tag> out.value = rules.amountValue; </tag>
+            <ruleref uri="#numberValue" />
+            <tag> out.value = rules.numberValue; </tag>
           </item>
         </item>
         <item>
@@ -254,7 +254,7 @@
     <rule id="amountValue">
       <item>hello</item>
 <!--      
-      
+
       <item repeat="0-1">
         <ruleref uri="#onesPlace"/><tag>out = (out ? out : 0) + rules.onesPlace;</tag>
       </item>
