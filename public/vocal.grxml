@@ -15,10 +15,6 @@
       <ruleref uri="#docType"/>
       <tag>out.docType = rules.docType;</tag>
     </item>
-    <item>
-      <ruleref uri="#condition"/>
-      <tag>out.condition = rules.condition;</tag>
-    </item>
     <item repeat="0-1">
       <ruleref uri="#closing"/>
     </item>
