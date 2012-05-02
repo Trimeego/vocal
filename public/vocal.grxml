@@ -94,16 +94,6 @@
             <tag>out.value = rules.numberValue;</tag>
           </item>
         </item>
-        <item> invoices <tag> out = 'invoice'; </tag> </item>
-        <item> purchase order <tag> out = 'po'; </tag> </item>
-        <item> pee oh <tag> out = 'po'; </tag> </item>
-      </one-of>
-
-<!--      
-
-      <tag> out.field = "invoice_number"; </tag>
-      <tag> out.operator = "is"; <tag>
-      <one-of>
         <item> 
           <item> amount <tag> out.field = 'invoice_amount'; </tag> </item> 
           <item>
@@ -115,6 +105,13 @@
             <tag> out.value = rules.numberValue; </tag>
           </item>
         </item>
+      </one-of>
+
+<!--      
+
+      <tag> out.field = "invoice_number"; </tag>
+      <tag> out.operator = "is"; <tag>
+      <one-of>
         <item>
           <one-of>
             <item> received </item>
