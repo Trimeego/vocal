@@ -31,7 +31,7 @@ app.post "/continue", (req, res) ->
     tropo.say "Error, " + error
     res.send TropoJSON(tropo)
   else
-    query = req.body["result"]["actions"]["value"]
+    query = req.body["result"]["actions"]["value"] ? {}
     console.log req.body["result"]["actions"]
 
     query.docType ?= 'invoice'

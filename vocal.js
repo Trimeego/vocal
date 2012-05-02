@@ -36,7 +36,7 @@
   });
 
   app.post("/continue", function(req, res) {
-    var error, phrases, query, tropo;
+    var error, phrases, query, tropo, _ref;
     tropo = new TropoWebAPI();
     console.log(req.body);
     error = req.body["result"]["error"];
@@ -44,7 +44,7 @@
       tropo.say("Error, " + error);
       return res.send(TropoJSON(tropo));
     } else {
-      query = req.body["result"]["actions"]["value"];
+      query = (_ref = req.body["result"]["actions"]["value"]) != null ? _ref : {};
       console.log(req.body["result"]["actions"]);
       if (query.docType == null) {
         query.docType = 'invoice';
