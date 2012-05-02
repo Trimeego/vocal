@@ -257,11 +257,11 @@
     <tag> out = 0; </tag>
       <item repeat="0-1">
         <ruleref uri="#thousandsPlace"/>
-        <tag>out = out + rules.thousandsPlace;</tag>
+        <tag>out = out + (rules.thousandsPlace * 1000);</tag>
       </item>
       <item repeat="0-1">
         <ruleref uri="#hundredsPlace"/>
-        <tag>out = out + rules.hundredsPlace;</tag>
+        <tag>out = out + (rules.hundredsPlace * 1000);</tag>
       </item>
       <item repeat="0-1">
         <ruleref uri="#onesPlace"/>
@@ -273,7 +273,7 @@
       </item>
       <item repeat="0-1">
         <ruleref uri="#centsPlace"/>
-        <tag>out = out + rules.centsPlace;</tag>
+        <tag>out = out + (rules.centsPlace * .01);</tag>
         <item repeat="0-1"> cents </item>
       </item>
   </rule>
@@ -328,20 +328,20 @@
     <one-of>
       <item>
         <ruleref uri="#numbers1to9"/>
-        <tag>out = rules.numbers1to9 * .01;</tag>
+        <tag>out = rules.numbers1to9;</tag>
       </item>
       <item>
         <ruleref uri="#teens"/>
-        <tag>out = rules.numbers1to9 * .01;</tag>
+        <tag>out = rules.numbers1to9;</tag>
       </item>
       <item>
         <item>
           <ruleref uri="#tens"/>
-          <tag>out = (rules.tens * .01);</tag>
+          <tag>out = (rules.tens);</tag>
         </item>
         <item repeat="0-1">
           <ruleref uri="#numbers1to9"/>
-          <tag>out = (rules.numbers1to9 * .01);</tag>
+          <tag>out = (rules.numbers1to9);</tag>
         </item>
       </item>
     </one-of>
@@ -372,20 +372,20 @@
     <one-of>
       <item>
         <ruleref uri="#numbers1to9"/>
-        <tag>out = rules.numbers1to9 * 100;</tag>
+        <tag>out = rules.numbers1to9;</tag>
       </item>
       <item>
         <ruleref uri="#teens"/>
-        <tag>out = rules.numbers1to9 * 100;</tag>
+        <tag>out = rules.numbers1to9;</tag>
       </item>
       <item>
         <item>
           <ruleref uri="#tens"/>
-          <tag>out = out + (rules.tens * 100);</tag>
+          <tag>out = out + rules.tens;</tag>
         </item>
         <item repeat="0-1">
           <ruleref uri="#numbers1to9"/>
-          <tag>out = out + (rules.numbers1to9 * 100);</tag>
+          <tag>out = out + rules.numbers1to9;</tag>
         </item>
       </item>
     </one-of>
@@ -396,25 +396,25 @@
     <one-of>
       <item>
         <ruleref uri="#numbers1to9"/>
-        <tag>out = rules.numbers1to9 * 1000;</tag>
+        <tag>out = rules.numbers1to9;</tag>
       </item>
       <item>
         <ruleref uri="#teens"/>
-        <tag>out = rules.teens * 1000;</tag>
+        <tag>out = rules.teens;</tag>
       </item>
       <item>
         <item>
           <ruleref uri="#tens"/>
-          <tag>out = (rules.tens * 1000);</tag>
+          <tag>out = rules.tens;</tag>
         </item>
         <item repeat="0-1">
           <ruleref uri="#numbers1to9"/>
-          <tag>out = out + (rules.numbers1to9 * 1000);</tag>
+          <tag>out = out + rules.numbers1to9;</tag>
         </item>
       </item>
       <item>
         <ruleref uri="#hundredsPlace"/>
-        <tag>out = out + rules.hundredsPlace * 1000;</tag>
+        <tag>out = out + rules.hundredsPlace;</tag>
       </item>
     </one-of>
     <item> thousand </item>
