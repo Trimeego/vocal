@@ -79,7 +79,7 @@
         </item>
       </item>
       <item>
-        <item> amount <tag> out.field = 'invoice_amount'; </tag> </item>
+        <item repeat="0-1"> amount <tag> out.field = 'invoice_amount'; </tag> </item>
         <item>
           <ruleref uri="#numericOperators"/>
           <tag>out.condition = rules.numericOperators;</tag>
