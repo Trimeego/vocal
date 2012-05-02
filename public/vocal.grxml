@@ -86,6 +86,9 @@
     
 
     <rule id="condition">
+      <tag> out.field = "invoice_number"; </tag>
+      <tag> out.operator = "is"; <tag>
+    
       <one-of>
         <item> 
           <item> number </item>
@@ -138,12 +141,6 @@
           <tag> out.field = 'check_date'; </tag> 
         </item>        
       </one-of>
-
-<!--      
-
-      <tag> out.field = "invoice_number"; </tag>
-      <tag> out.operator = "is"; <tag>
--->  
     </rule>
 
 
