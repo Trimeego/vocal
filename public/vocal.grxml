@@ -246,8 +246,8 @@
         and
       </item>
       <item repeat="0-1">
-        <ruleref uri="#cents"/>
-        <tag>out = out + rules.cents;</tag>
+        <ruleref uri="#centsPlace"/>
+        <tag>out = out + rules.centsPlace;</tag>
         <item repeat="0-1"> cents </item>
       </item>
   </rule>
