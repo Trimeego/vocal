@@ -36,7 +36,7 @@
       tropo.say("Error, " + error);
       return res.send(TropoJSON(tropo));
     } else {
-      query = req.body["result"]["actions"]["query"];
+      query = req.body["result"]["actions"]["value"];
       console.log(req.body["result"]["actions"]);
       if (query.docType == null) {
         query.docType = 'invoice';
